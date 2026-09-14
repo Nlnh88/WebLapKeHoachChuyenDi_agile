@@ -1,0 +1,7 @@
+</main>
+<footer class="footer"><div class="container-fluid px-4 px-xl-5 py-4 d-flex flex-column flex-md-row justify-content-between gap-2"><div><strong>TripMate</strong><span class="ms-2 text-secondary">Lập kế hoạch · Đi đúng chỗ · Chi đúng ngân sách</span></div><div class="text-secondary small">© <?= date('Y') ?> TripMate · Web Design Final Project</div></div></footer>
+<?php if(empty($_SESSION['user'])): ?>
+<div class="modal fade" id="loginRequiredModal" tabindex="-1" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content border-0 shadow-lg rounded-4"><div class="modal-header border-0 pb-0"><h5 class="modal-title fw-bold">🔒 Yêu cầu đăng nhập</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button></div><div class="modal-body pt-2 pb-4"><p class="text-secondary mb-4">Bạn cần đăng nhập để lưu địa điểm yêu thích hoặc đăng đánh giá. Bạn vẫn có thể khám phá địa điểm mà không cần tài khoản.</p><div class="d-flex gap-2"><a class="btn btn-primary flex-grow-1 rounded-3" href="<?= base_url('login.php') ?>">Đăng nhập</a><a class="btn btn-outline-secondary rounded-3" href="<?= base_url('register.php') ?>">Đăng ký</a></div></div></div></div></div>
+<?php endif; ?>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><script src="<?= base_url('assets/js/app.js') ?>"></script>
+</body></html>
