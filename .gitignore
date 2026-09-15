@@ -1,0 +1,52 @@
+# =========================
+# XAMPP / Local environment
+# =========================
+xampp/
+htdocs/
+
+# =========================
+# Environment / secrets
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# IDE / Editor
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# Temporary files
+# =========================
+*.tmp
+*.temp
+*.bak
+
+# =========================
+# PHP local files
+# =========================
+composer.lock
+
+# =========================
+# Uploaded/generated files
+# Keep the folder but ignore user-uploaded content
+# =========================
+uploads/reviews/*
+!uploads/reviews/.gitkeep
+!uploads/reviews/.htaccess
