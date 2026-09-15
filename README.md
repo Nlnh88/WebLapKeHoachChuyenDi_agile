@@ -1,77 +1,129 @@
-# TripMate — Core MVP cho nhóm 3 người / chạy trước bởi 1 người
+# TripMate – Vietnam Travel Planning Website
 
-TripMate là website lập kế hoạch chuyến đi theo phong cách travel portal hiện đại: header, sidebar trái, hero search, inspiration cards, destination grid và trip workspace.
+TripMate là website hỗ trợ người dùng khám phá các địa điểm du lịch tại Việt Nam và lập kế hoạch cho chuyến đi.
 
-## Mục tiêu 1 tuần
-Làm **10 tính năng lõi chạy end-to-end trước**. Chức năng mở rộng chỉ thêm khi core đã ổn.
+Project được xây dựng bằng PHP và MySQL, chạy trên môi trường XAMPP. Dự án được phát triển theo phương pháp Agile/Scrum với 2 Sprint trong thời gian từ 01/09/2026 đến 14/09/2026.
 
-### 10 tính năng lõi
-1. **Auth** — đăng ký, đăng nhập, đăng xuất, session, password hash.
-2. **Explore locations** — list/grid, search, filter, sort, pagination.
-3. **Location detail** — chi tiết địa điểm + rating/review.
-4. **Favorites** — lưu/bỏ lưu địa điểm.
-5. **Trip CRUD** — tạo, xem, sửa, xóa chuyến đi.
-6. **Itinerary** — thêm/xóa hoạt động theo ngày/giờ.
-7. **Budget** — thêm/xóa khoản chi + tổng ngân sách.
-8. **Checklist** — thêm, tick hoàn thành, xóa.
-9. **Members & registration** — thêm thành viên + đăng ký tham gia trip public.
-10. **Admin** — dashboard, quản lý users, locations, trips, registrations.
+## 1. Mục tiêu dự án
 
-## Stack
-- PHP 8+
-- MySQL 8+
-- Bootstrap 5
-- Vanilla JavaScript
-- Chart.js để mở rộng sau
+TripMate hướng đến việc cung cấp một nền tảng đơn giản để người dùng:
 
-## Database
-`users`, `categories`, `locations`, `trips`, `trip_members`, `itineraries`, `expenses`, `favorites`, `registrations`, `reviews`, `checklists`
+- Khám phá các địa điểm du lịch.
+- Tìm kiếm và lọc địa điểm.
+- Xem thông tin chi tiết địa điểm.
+- Lưu địa điểm yêu thích.
+- Tạo và quản lý chuyến đi.
+- Xây dựng lịch trình theo ngày.
+- Quản lý thành viên chuyến đi.
+- Đăng ký tham gia các chuyến đi công khai.
+- Quản lý ngân sách và checklist.
+- Đánh giá địa điểm.
 
-## Cấu trúc
+Hệ thống cũng cung cấp khu vực Admin để quản lý người dùng, địa điểm, chuyến đi và đăng ký tham gia.
+
+## 2. Chức năng chính
+
+### Người dùng
+
+1. Đăng ký tài khoản.
+2. Đăng nhập / đăng xuất.
+3. Xem danh sách địa điểm.
+4. Tìm kiếm và lọc địa điểm.
+5. Xem chi tiết địa điểm.
+6. Lưu / bỏ lưu địa điểm yêu thích.
+7. Tạo chuyến đi.
+8. Xem, sửa và xóa chuyến đi.
+9. Xây dựng lịch trình theo ngày.
+10. Quản lý thành viên chuyến đi.
+11. Quản lý ngân sách.
+12. Quản lý checklist.
+13. Xem và đăng ký tham gia chuyến đi công khai.
+14. Viết và xem đánh giá.
+
+### Admin
+
+- Dashboard quản trị.
+- Quản lý người dùng.
+- Quản lý địa điểm.
+- Quản lý chuyến đi.
+- Quản lý đăng ký tham gia.
+- Phân quyền người dùng.
+
+## 3. Công nghệ sử dụng
+
+- **Frontend:** HTML, CSS, JavaScript, Bootstrap
+- **Backend:** PHP
+- **Database:** MySQL
+- **Web Server:** Apache
+- **Local Development:** XAMPP
+- **Version Control:** Git / GitHub
+
+## 4. Cấu trúc project
+
 ```text
-TripMate/
+webchuyendi/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   └── bug_report.md
+│   └── PULL_REQUEST_TEMPLATE.md
+│
 ├── actions/
+│   └── favorite.php
+│
 ├── admin/
+│   ├── dashboard.php
+│   ├── locations.php
+│   ├── registrations.php
+│   ├── trips.php
+│   └── users.php
+│
 ├── assets/
+│   ├── css/
+│   └── js/
+│
 ├── config/
+│   └── database.php
+│
 ├── database/
+│   ├── tripmate.sql
+│   ├── patch_cp06.sql
+│   └── patch_destinations.sql
+│
+├── docs/
+│   ├── agile/
+│   │   ├── product-backlog.md
+│   │   ├── sprint-1/
+│   │   └── sprint-2/
+│   │
+│   └── architecture/
+│       ├── system-architecture.md
+│       └── database-architecture.md
+│
 ├── includes/
+│   ├── footer.php
+│   ├── header.php
+│   ├── helpers.php
+│   └── navbar.php
+│
 ├── locations/
+│   ├── detail.php
+│   └── index.php
+│
+├── uploads/
+│   └── reviews/
+│
 ├── user/
-└── index.php
-```
-
-## Chạy local
-1. Copy thư mục vào `C:/xampp/htdocs/TripMate`.
-2. Start Apache + MySQL.
-3. phpMyAdmin → Import `database/tripmate.sql`.
-4. Mở `http://localhost/TripMate/`.
-
-## Demo accounts
-- Admin: `admin@tripmate.local` / `Admin@123`
-- User: `demo@tripmate.local` / `Admin@123`
-
-## Chiến thuật làm
-**UI → PHP → SQL → Test → Commit** theo từng module. Không để ngày cuối mới tích hợp.
-
-### P0 trước
-Auth → Locations → Trip CRUD → Itinerary → Admin.
-
-### P1 sau khi P0 ổn
-Budget → Favorite → Checklist → Registration → Review.
-
-### P2 nếu còn thời gian
-Email → notification → chart → map → weather.
-
-## Phân công khi đủ 3 người
-- **TV1:** Frontend / UI / responsive.
-- **TV2:** Backend PHP / Auth / Trip / Itinerary / Registration.
-- **TV3:** SQL / Admin / Budget / Favorite / Checklist / Review / Testing.
-
-Khi chỉ có 1 người, vẫn giữ nguyên 3 module trên nhưng làm tuần tự theo P0 → P1; mục tiêu là một người có thể chạy được toàn bộ core trước.
-
-
-## Điểm đến theo chuyến đi
-- Khi tạo/chỉnh sửa trip, Điểm đến là dropdown lấy từ dữ liệu locations.
-- Lịch trình chỉ cho chọn locations có cùng `destination` với trip.
-- `database/patch_destinations.sql` dùng để cập nhật database cũ mà không cần xóa dữ liệu.
+│   ├── dashboard.php
+│   ├── favorites.php
+│   ├── public-trips.php
+│   ├── trip-create.php
+│   ├── trip-detail.php
+│   ├── trip-edit.php
+│   └── trips.php
+│
+├── index.php
+├── login.php
+├── logout.php
+├── register.php
+├── .gitignore
+└── README.md
